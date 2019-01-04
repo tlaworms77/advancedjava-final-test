@@ -12,6 +12,26 @@ public class CalcApp {
 		int b = scanner.nextInt();
 		String operation = scanner.next();
 		
+		Arithmetic arith = null;
+		
 		/* operation에 따라 4칙 연산 객체를 생성하고 caculate 메서드를 호출합니다. */
+		switch (operation) {
+			case "+":
+				arith = new Add();
+				break;
+			case "-":
+				arith = new Sub();
+				break;
+			case "*":
+				arith = new Mul();
+				break;
+			case "/":
+				arith = new Div();
+				break;
+			default:
+				System.out.println("잘못입력하였습니다...");
+				break;
+			}
+		System.out.println(arith.calculate(a, b));
 	}
 }

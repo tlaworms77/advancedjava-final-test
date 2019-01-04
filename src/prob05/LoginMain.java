@@ -22,10 +22,21 @@ public class LoginMain {
 		/*
 		 *  로그인 처리 부분을 완성 합니다.
 		 */
+		try {
+			login(joinUsers, new User(id, password));
+		} catch (UserNotFoundException e) {
+			System.out.println(e);
+			return;
+		} catch (PasswordDismatchException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e);
+			return;
+		}
+		System.out.println("로그인 성공");
 		
 
 	}
-	
+	// return 값을 받아서 처리하는 것이 정석 이것은 exception 연습하기위한 코드
 	public static void login(List<User> users, User user ) throws UserNotFoundException, PasswordDismatchException {
 		if( !users.contains(user) ){
 			throw new UserNotFoundException();
